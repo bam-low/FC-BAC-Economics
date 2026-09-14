@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Экономический блок — рабочий бриф</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEFF2;
+    --panel:#FFFFFF;
+    --ink:#1B2735;
+    --ink-soft:#48566B;
+    --muted:#8A93A3;
+    --line:#D4D9E0;
+    --accent:#FF6A13;
+    --accent-soft:#FFE7D6;
+    --done:#2C6E49;
+    --done-soft:#DCEAE1;
+    --together:#2B5FA8;
+    --together-soft:#DCE7F6;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--paper) 1px, transparent 1px) 0 0/100% 28px,
+      var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    padding:56px 20px 90px;
+  }
+
+  .sheet{
+    max-width:760px;
+    margin:0 auto;
+  }
+
+  header.doc-head{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:2px;
+    padding:36px 40px 30px;
+    margin-bottom:36px;
+    position:relative;
+  }
+
+  header.doc-head::after{
+    content:"";
+    position:absolute;
+    left:40px; right:40px; bottom:0;
+    height:4px;
+    background:var(--accent);
+  }
+
+  .doc-kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.02em;
+    color:#AEB9CC;
+    margin-bottom:14px;
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:32px;
+    line-height:1.18;
+    margin:0 0 14px;
+    max-width:600px;
+  }
+
+  .doc-sub{
+    color:#C7CEDB;
+    font-size:15.5px;
+    max-width:520px;
+    margin:0;
+  }
+
+  section{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:30px 40px;
+    margin-bottom:22px;
+  }
+
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:21px;
+    margin:0 0 6px;
+    color:var(--ink);
+  }
+
+  .section-note{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+    max-width:600px;
+  }
+
+  /* --- context --- */
+  .context-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px 28px;
+  }
+  .context-item dt{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+  .context-item dd{
+    margin:0;
+    font-size:14.5px;
+    color:var(--ink);
+  }
+
+  /* --- timeline --- */
+  .timeline{
+    position:relative;
+    padding-left:34px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:11px; top:6px; bottom:6px;
+    width:1.5px;
+    background:var(--line);
+  }
+  .step{
+    position:relative;
+    padding-bottom:26px;
+  }
+  .step:last-child{padding-bottom:0;}
+  .step::before{
+    content:attr(data-n);
+    position:absolute;
+    left:-34px; top:0;
+    width:23px; height:23px;
+    border-radius:50%;
+    background:var(--panel);
+    border:1.5px solid var(--ink);
+    color:var(--ink);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .step-title{
+    font-weight:600;
+    font-size:15.5px;
+    margin:1px 0 5px;
+  }
+  .step-desc{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+    max-width:600px;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.02em;
+    padding:3px 8px;
+    border-radius:2px;
+  }
+  .tag.done{background:var(--done-soft); color:var(--done);}
+  .tag.decide{background:var(--accent-soft); color:var(--accent);}
+  .tag.together{background:var(--together-soft); color:var(--together);}
+
+  /* --- formula table --- */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.8px;
+  }
+  th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    font-weight:500;
+    padding:0 12px 10px 0;
+    border-bottom:1px solid var(--ink);
+  }
+  td{
+    padding:12px 12px 12px 0;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+    color:var(--ink);
+  }
+  td.formula{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.8px;
+    color:var(--together);
+    white-space:nowrap;
+  }
+  tr:last-child td{border-bottom:none;}
+
+  /* --- checklist --- */
+  .checklist{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .checklist li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    font-size:14.3px;
+  }
+  .checklist .box{
+    flex:none;
+    width:16px; height:16px;
+    margin-top:3px;
+    border:1.5px solid var(--ink);
+    border-radius:2px;
+  }
+  .checklist b{font-weight:600;}
+  .checklist span.detail{color:var(--ink-soft); display:block; font-size:13.3px; margin-top:2px;}
+
+  /* --- sources --- */
+  .sources{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+  }
+  .source-card{
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:14px 16px;
+  }
+  .source-card .obj{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  .source-card .name{font-weight:600; font-size:14.5px; margin-bottom:4px;}
+  .source-card .desc{font-size:12.8px; color:var(--ink-soft);}
+
+  /* --- terms --- */
+  .terms{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:8px 16px;
+    font-size:13.6px;
+  }
+  .terms dt{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .terms dd{margin:0; color:var(--ink-soft);}
+
+  footer{
+    text-align:center;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:30px;
+  }
+
+  @media (max-width:600px){
+    section{padding:24px 20px;}
+    header.doc-head{padding:28px 22px 24px;}
+    .context-grid{grid-template-columns:1fr;}
+    .sources{grid-template-columns:1fr;}
+    table, thead, tbody, th, td, tr{display:block;}
+    th{display:none;}
+    td{border-bottom:none; padding:2px 0;}
+    tr{padding-bottom:14px; border-bottom:1px solid var(--line); display:block; margin-bottom:6px;}
+    td.formula{white-space:normal;}
+  }
+
+  @media print{
+    body{background:#fff; padding:0;}
+    section, header.doc-head{border:none; break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="doc-head">
+    <div class="doc-kicker">ХАКАТОН · ФЦ БАС · ЭКОНОМИЧЕСКИЙ БЛОК</div>
+    <h1>Расчёт экономики роботизации: рабочий бриф команды</h1>
+    <p class="doc-sub">Собранный план, формулы и открытые вопросы для старта работы. Один документ вместо переписки.</p>
+  </header>
+
+  <section>
+    <h2>Контекст в двух словах</h2>
+    <p class="section-note">Что мы вообще делаем и зачем этот документ.</p>
+    <dl class="context-grid">
+      <div class="context-item">
+        <dt>ЗАДАЧА</dt>
+        <dd>Платформа сравнивает базовый сценарий (живой труд) с 2+ сценариями роботизации — покупка и услуга (RaaS) — по CAPEX, OPEX, эффекту, окупаемости, ROI, TCO.</dd>
+      </div>
+      <div class="context-item">
+        <dt>МОЯ РОЛЬ</dt>
+        <dd>Экономическая модель: формулы, допущения, финансовая логика. Не парсинг каталога, не фронтенд — но контракт данных и проверка расчёта — да.</dd>
+      </div>
+      <div class="context-item">
+        <dt>ЧТО УЖЕ ЕСТЬ</dt>
+        <dd>Готовые нормализованные датасеты по складу, аэропорту и медучреждению (Excel, с базовыми значениями и диапазонами).</dd>
+      </div>
+      <div class="context-item">
+        <dt>ЧЕГО ЕЩЁ НЕТ</dt>
+        <dd>Каталог роботов с ценами — сырой, придёт отдельно. Финансовые допущения (амортизация, заём, RaaS) — не зафиксированы, это на нас.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Хронология работы</h2>
+    <p class="section-note">Порядок шагов от старта до готового расчётного модуля. Метки показывают, что можно делать сразу, что требует решения и что — совместно с разработкой.</p>
+    <div class="timeline">
+
+      <div class="step" data-n="1">
+        <div class="step-title">Изучить датасеты объекта</div>
+        <p class="step-desc">Выбрать из готового Excel только те параметры, которые реально нужны формулам (не все ~50 полей пойдут в расчёт).</p>
+        <span class="tag done">МОЖНО СЕЙЧАС</span>
+      </div>
+
+      <div class="step" data-n="2">
+        <div class="step-title">Зафиксировать финансовые допущения</div>
+        <p class="step-desc">Финансирование (свои средства / кредит / лизинг), метод и срок амортизации CAPEX, точный состав статей CAPEX/OPEX, логика платежей для RaaS.</p>
+        <span class="tag decide">ТРЕБУЕТ РЕШЕНИЯ</span>
+      </div>
+
+      <div class="step" data-n="3">
+        <div class="step-title">Определить контракт полей каталога роботов</div>
+        <p class="step-desc">Список характеристик робота (цена, производительность, грузоподъёмность, срок службы, стоимость обслуживания) и единиц измерения — передать тому, кто готовит каталог.</p>
+        <span class="tag decide">ТРЕБУЕТ РЕШЕНИЯ</span>
+      </div>
+
+      <div class="step" data-n="4">
+        <div class="step-title">Построить формулы</div>
+        <p class="step-desc">Полная цепочка: количество роботов → CAPEX → OPEX → годовой эффект → срок окупаемости → ROI → TCO. Отдельно для покупки, отдельно для RaaS.</p>
+        <span class="tag done">МОЖНО СЕЙЧАС</span>
+      </div>
+
+      <div class="step" data-n="5">
+        <div class="step-title">Проверить модель вручную на демо-данных</div>
+        <p class="step-desc">Прогнать формулы в Excel на базовых значениях склада для 2–3 условных роботов — получить эталон для сверки после программирования.</p>
+        <span class="tag done">МОЖНО СЕЙЧАС</span>
+      </div>
+
+      <div class="step" data-n="6">
+        <div class="step-title">Реализовать движок расчёта в коде</div>
+        <p class="step-desc">Перенос формул и допущений в код, который принимает параметры объекта и робота и отдаёт все метрики.</p>
+        <span class="tag together">СОВМЕСТНО С РАЗРАБОТКОЙ</span>
+      </div>
+
+      <div class="step" data-n="7">
+        <div class="step-title">What-if пересчёт и экспорт отчёта</div>
+        <p class="step-desc">Пересчёт при изменении ключевых параметров (мин. 3 — труд, объём операций, оборудование) + выгрузка отчёта в PDF/Excel с пометкой «предварительная оценка».</p>
+        <span class="tag together">СОВМЕСТНО С РАЗРАБОТКОЙ</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Ключевые формулы</h2>
+    <p class="section-note">Базовая логика расчёта (по ТЗ, п. 3.5.2) — отправная точка, детали статей уточняются в допущениях ниже.</p>
+    <table>
+      <thead>
+        <tr><th>Показатель</th><th>Формула</th><th>Комментарий</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Кол-во роботов</td>
+          <td class="formula">пик. потребность / (произв. робота × загрузка)</td>
+          <td>с учётом резерва и доступности оборудования</td>
+        </tr>
+        <tr>
+          <td>CAPEX</td>
+          <td class="formula">оборуд. + инфра + ПО + интеграция + пусконаладка + обучение + резерв</td>
+          <td>резерв обычно ~10%</td>
+        </tr>
+        <tr>
+          <td>OPEX</td>
+          <td class="formula">сервис + лицензии + энергия + связь + расходники + ремонт + персонал</td>
+          <td>для RaaS часть статей уходит в арендный платёж</td>
+        </tr>
+        <tr>
+          <td>Годовой эффект</td>
+          <td class="formula">экономия затрат + доп. доход − доп. OPEX</td>
+          <td>включает экономию ФОТ (коэфф. начислений 1.302)</td>
+        </tr>
+        <tr>
+          <td>Срок окупаемости</td>
+          <td class="formula">CAPEX / годовой эффект</td>
+          <td>простой, при положительном эффекте</td>
+        </tr>
+        <tr>
+          <td>ROI</td>
+          <td class="formula">накопленный эффект / CAPEX × 100%</td>
+          <td>горизонт задаётся пользователем</td>
+        </tr>
+        <tr>
+          <td>TCO</td>
+          <td class="formula">CAPEX + Σ OPEX за 5+ лет</td>
+          <td>с учётом замены компонентов (напр. АКБ раз в 3–5 лет)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Допущения, которые нужно решить до кода</h2>
+    <p class="section-note">Организаторы прямо оставили это на усмотрение команды — без явного решения формулы будут неоднозначными.</p>
+    <ul class="checklist">
+      <li>
+        <span class="box"></span>
+        <div><b>Финансирование</b>
+        <span class="detail">Базово — собственные средства. Решить: добавляем ли вариант с кредитом/лизингом (ставка, график платежей)?</span></div>
+      </li>
+      <li>
+        <span class="box"></span>
+        <div><b>Амортизация CAPEX</b>
+        <span class="detail">Выбрать метод (обычно линейный) и срок службы оборудования.</span></div>
+      </li>
+      <li>
+        <span class="box"></span>
+        <div><b>Состав статей CAPEX и OPEX</b>
+        <span class="detail">Что именно входит в каждую статью — для сценариев покупки и услуги отдельно, согласовать с демо-данными.</span></div>
+      </li>
+      <li>
+        <span class="box"></span>
+        <div><b>Логика RaaS (аренда)</b>
+        <span class="detail">Структура платежей (фикс / за использование / смешанная), срок контракта, условия выкупа, распределение между CAPEX и OPEX.</span></div>
+      </li>
+      <li>
+        <span class="box"></span>
+        <div><b>Правила исключения решений</b>
+        <span class="detail">По каким техническим ограничениям робот не подходит объекту (габариты, масса, точность позиционирования, безопасность).</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Источники данных</h2>
+    <p class="section-note">Что уже предоставлено организаторами.</p>
+    <div class="sources">
+      <div class="source-card">
+        <div class="obj">СКЛАД</div>
+        <div class="name">Датасет готов</div>
+        <div class="desc">Площади, режим работы, объёмы операций, персонал, ФОТ, маршруты, инфраструктура — с диапазонами min/max.</div>
+      </div>
+      <div class="source-card">
+        <div class="obj">АЭРОПОРТ</div>
+        <div class="name">Датасет готов</div>
+        <div class="desc">Пассажиропоток, наземное обслуживание, внутрипортовая логистика, безопасность, инфраструктура.</div>
+      </div>
+      <div class="source-card">
+        <div class="obj">МЕДУЧРЕЖДЕНИЕ</div>
+        <div class="name">Датасет готов</div>
+        <div class="desc">Логистика питания, белья, медикаментов, анализов, отходов; санитарные требования, персонал.</div>
+      </div>
+    </div>
+    <p class="section-note" style="margin-top:18px; margin-bottom:0;">Каталог роботов и файл цен (catalog_export_v5) — придут отдельно, детали по НДС и дублям позиций уточнят на Q&A.</p>
+  </section>
+
+  <section>
+    <h2>Термины на всякий случай</h2>
+    <dl class="terms">
+      <dt>CAPEX</dt><dd>капитальные затраты на приобретение и внедрение</dd>
+      <dt>OPEX</dt><dd>операционные затраты на эксплуатацию</dd>
+      <dt>ROI</dt><dd>отношение эффекта к инвестициям</dd>
+      <dt>TCO</dt><dd>совокупная стоимость владения за горизонт</dd>
+      <dt>RaaS</dt><dd>«робот как услуга» — аренда вместо покупки</dd>
+      <dt>ФОТ</dt><dd>фонд оплаты труда; коэфф. начислений 1.302</dd>
+    </dl>
+  </section>
+
+  <footer>Живой документ — обновляется по мере решения открытых вопросов.</footer>
+
+</div>
+</body>
+</html>
