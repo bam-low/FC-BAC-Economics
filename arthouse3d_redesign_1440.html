@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ArtHouse 3D — наборы для 3D-слепков оптом</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1d1a17;--cream:#faf5ec;--cream2:#f3ebdc;--gold:#f2b705;--gold2:#ffd54a;--mut:#857b6f;--line:#e8decd}
+html{overflow-x:hidden}
+body{font-family:"Inter",sans-serif;color:var(--ink);background:#fff;min-width:1440px;overflow-x:hidden}
+.wrap{width:1240px;margin:0 auto;position:relative}
+.it{font-family:"Playfair Display","DejaVu Serif",serif;font-style:italic;font-weight:700;color:var(--gold);letter-spacing:-1px}
+h1,h2,h3{font-weight:900;letter-spacing:-2px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 28px;border-radius:14px;font:700 16px Inter;text-decoration:none;white-space:nowrap}
+.btn.g{background:var(--gold);color:var(--ink)}
+.btn.d{background:var(--ink);color:#fff}
+.btn.o{border:2px solid var(--ink);color:var(--ink)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:700 12px Inter;letter-spacing:1.4px;text-transform:uppercase;color:var(--mut)}
+.tag:before{content:"";width:28px;height:2px;background:var(--gold)}
+.h2{font-size:56px;line-height:1.02;margin-top:16px}
+.lead{font-size:18px;line-height:1.6;color:var(--mut);margin-top:16px;max-width:520px}
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#e9dcc6,#cdb894)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--gold)}
+
+/* header */
+header{padding:20px 0;border-bottom:1px solid var(--line);background:var(--cream)}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .mk{width:44px;height:44px;border-radius:12px;background:var(--ink);display:grid;place-items:center}
+.logo b{font:900 22px Inter;letter-spacing:-.5px;display:block}
+.logo b span{color:var(--gold)}
+.logo small{font:500 11px Inter;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
+.links{display:flex;gap:34px;font:600 15px Inter}
+.links a{color:var(--ink);text-decoration:none}
+.nav-r{display:flex;align-items:center;gap:20px}
+.phone{font:800 17px Inter}
+.phone small{display:block;font:500 12px Inter;color:var(--mut)}
+.nav .btn{height:48px;font-size:15px}
+
+/* hero */
+.hero{background:var(--cream);padding:70px 0 90px;position:relative;overflow:hidden}
+.hero .wrap{display:flex;gap:40px;align-items:center}
+.hero-l{width:640px}
+.hero h1{font-size:84px;line-height:.98;letter-spacing:-3.5px;margin-top:22px}
+.hero h1 .it{font-size:92px;letter-spacing:-2px}
+.hero p{font-size:20px;line-height:1.6;color:var(--mut);margin-top:26px;max-width:540px}
+.cta{display:flex;gap:14px;margin-top:36px}
+.facts{display:flex;gap:16px;margin-top:48px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 20px}
+.fact b{font:900 26px Inter;letter-spacing:-1px;display:block}
+.fact span{font-size:13px;color:var(--mut)}
+.hero-r{position:relative;width:560px;height:620px;margin-left:auto}
+.arch{position:absolute;right:0;top:0;width:470px;height:600px;border-radius:240px 240px 28px 28px}
+.blob{position:absolute;left:20px;top:60px;width:260px;height:260px;border-radius:50%;background:var(--gold);opacity:.9}
+.float{position:absolute;background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 20px 50px rgba(29,26,23,.14);z-index:3}
+.float b{font:900 24px Inter;letter-spacing:-.5px}
+.float small{display:block;font-size:12px;color:var(--mut);margin-top:2px}
+.mini{position:absolute;left:0;bottom:30px;width:210px;height:210px;border-radius:24px;border:8px solid #fff;box-shadow:0 20px 50px rgba(29,26,23,.18);z-index:2}
+
+/* marquee */
+.mq{background:var(--ink);padding:22px 0;white-space:nowrap;overflow:hidden}
+.mq div{font:800 24px Inter;color:#fff;letter-spacing:.3px}
+.mq b{color:var(--gold);margin:0 26px}
+
+/* why */
+.why{padding:120px 0}
+.why .wrap{display:grid;grid-template-columns:500px 1fr;gap:60px}
+.why .big{height:640px;border-radius:28px}
+.why .big .badge{position:absolute;left:24px;bottom:24px;right:24px;background:rgba(29,26,23,.82);color:#fff;border-radius:18px;padding:20px;z-index:2}
+.why .big .badge b{font:900 30px Inter;color:var(--gold)}
+.why .big .badge span{display:block;font-size:14px;opacity:.8;margin-top:4px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.wc{background:var(--cream);border-radius:22px;padding:26px}
+.wc h3{font-size:22px;letter-spacing:-.5px;margin-top:18px}
+.wc p{font-size:15px;line-height:1.55;color:var(--mut);margin-top:8px}
+.wc.dark{background:var(--ink);color:#fff}.wc.dark p{color:rgba(255,255,255,.65)}
+
+/* catalog */
+.cat{background:var(--cream);padding:110px 0}
+.cat-top{display:flex;justify-content:space-between;align-items:flex-end}
+.tabs{display:flex;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px}
+.tabs div{padding:12px 18px;border-radius:10px;font:600 14px Inter;color:var(--mut)}
+.tabs .a{background:var(--ink);color:#fff}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px}
+.card{background:#fff;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.card .ph{height:260px}
+.card .lbl{position:absolute;left:14px;top:14px;z-index:2;font:700 12px Inter;background:var(--gold);padding:6px 10px;border-radius:8px}
+.card .lbl.n{background:var(--ink);color:#fff}
+.card .bd{padding:20px}
+.card h3{font-size:20px;letter-spacing:-.4px}
+.card .spec{font-size:13.5px;color:var(--mut);margin-top:6px;line-height:1.5}
+.card .pr{display:flex;justify-content:space-between;align-items:flex-end;margin-top:18px;padding-top:16px;border-top:1px dashed var(--line)}
+.card .pr b{font:900 24px Inter;letter-spacing:-.5px;display:block}
+.card .pr small{font-size:12px;color:var(--mut)}
+.card .add{width:46px;height:46px;border-radius:12px;background:var(--gold);display:grid;place-items:center;font:800 22px Inter}
+
+/* partners */
+.part{padding:120px 0}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+.pc{border:1px solid var(--line);border-radius:24px;padding:30px;position:relative;min-height:230px}
+.pc .n{position:absolute;right:26px;top:26px;font:800 13px Inter;color:#cbbfae}
+.pc h3{font-size:23px;letter-spacing:-.5px;margin-top:22px}
+.pc p{font-size:15px;line-height:1.55;color:var(--mut);margin-top:8px}
+.pc.yel{background:var(--gold);border:0}
+.pc.yel p{color:var(--ink);opacity:.75}
+
+/* where */
+.where{background:var(--ink);color:#fff;padding:120px 0}
+.where .lead{color:rgba(255,255,255,.6)}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:280px;gap:18px;margin-top:50px}
+.bx{border-radius:24px}
+.bx .cap{position:absolute;left:0;right:0;bottom:0;padding:24px;z-index:2;background:linear-gradient(180deg,transparent,rgba(20,17,14,.92) 55%)}
+.bx .cap b{font:800 22px Inter;letter-spacing:-.4px;display:block}
+.bx .cap span{font-size:14px;color:rgba(255,255,255,.75);display:block;margin-top:6px;line-height:1.45}
+.bx .num{position:absolute;left:20px;top:20px;z-index:2;width:38px;height:38px;border-radius:50%;background:var(--gold);color:var(--ink);display:grid;place-items:center;font:800 14px Inter}
+
+/* steps */
+.steps{padding:120px 0 60px}
+.st{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;border-top:2px solid var(--ink)}
+.s{padding:28px 26px 0 0}
+.s .k{font:900 64px Inter;color:var(--gold);letter-spacing:-2px;line-height:1}
+.s h4{font:800 21px Inter;margin-top:14px;letter-spacing:-.3px}
+.s p{font-size:15px;color:var(--mut);line-height:1.55;margin-top:8px}
+.kit{margin-top:56px;background:var(--cream);border-radius:28px;padding:34px 40px;display:flex;align-items:center;gap:40px}
+.kit h3{font-size:30px;letter-spacing:-1px;width:330px;flex:none}
+.kit ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 30px;flex:1}
+.kit li{display:flex;gap:10px;align-items:center;font:600 15px Inter}
+.kit li i{width:24px;height:24px;border-radius:7px;background:var(--gold);display:grid;place-items:center;font-style:normal;font-size:12px;flex:none}
+
+/* reviews */
+.rev{padding:80px 0 120px}
+.r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px}
+.rc{border-radius:24px;padding:30px;background:#fff;border:1px solid var(--line)}
+.rc q{font-size:16px;line-height:1.6;display:block;quotes:none}
+.rc .who{display:flex;align-items:center;gap:12px;margin-top:22px}
+.rc .av{width:48px;height:48px;border-radius:50%}
+.rc .who b{display:block;font-size:15px}.rc .who span{font-size:13px;color:var(--mut)}
+.rc .res{display:inline-block;margin-bottom:16px;font:800 13px Inter;background:var(--cream);padding:6px 10px;border-radius:8px}
+.rc.dk{background:var(--ink);color:#fff;border:0}.rc.dk .who span{color:rgba(255,255,255,.6)}.rc.dk .res{background:var(--gold);color:var(--ink)}
+
+/* order */
+.order{padding:0 0 120px}
+.ord{border-radius:36px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:#fff}
+.ord .l{padding:60px}
+.ord h2{font-size:52px;line-height:1.02}
+.ord .l p{font-size:17px;line-height:1.6;color:rgba(255,255,255,.65);margin-top:16px}
+.f{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;height:60px;padding:0 18px;display:flex;flex-direction:column;justify-content:center;margin-top:12px}
+.f small{font:600 11px Inter;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.8px}
+.f span{font:500 16px Inter;color:rgba(255,255,255,.4);margin-top:2px}
+.chips{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.chips span{font:600 13px Inter;padding:9px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8)}
+.chips span.a{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.ord .btn{width:100%;justify-content:center;margin-top:22px;height:60px}
+.ord .ph{min-height:100%}
+.contact{position:absolute;left:30px;right:30px;bottom:30px;z-index:2;background:#fff;color:var(--ink);border-radius:20px;padding:22px 24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact div small{display:block;font-size:12px;color:var(--mut)}
+.contact div b{font-size:16px}
+
+footer{background:var(--cream);padding:56px 0 30px;border-top:1px solid var(--line)}
+.ft{display:flex;justify-content:space-between;align-items:flex-start}
+.ft-b{display:flex;justify-content:space-between;margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--mut)}
+</style></head><body>
+
+<header><div class="wrap nav">
+ <div class="logo"><div class="mk"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M8 24V11c0-1.7 2.6-1.7 2.6 0v5V5c0-1.7 2.6-1.7 2.6 0v11V4c0-1.7 2.6-1.7 2.6 0v12V7c0-1.7 2.6-1.7 2.6 0v11c0 4-3 6-6 6Z" fill="#f2b705"/><path d="M8 16 5.5 12.5c-1-1.3 1-2.8 2-1.5L8 12" fill="#f2b705"/></svg></div><div><b>ArtHouse <span>3D</span></b><small>sculptor of memories</small></div></div>
+ <nav class="links"><a>Наборы</a><a>Почему мы</a><a>Партнёрам</a><a>Где продавать</a><a>Контакты</a></nav>
+ <div class="nav-r"><div class="phone">+7 (999) 000-00-00<small>Пн–Пт, 9:00–19:00</small></div><a class="btn d">Оптовый прайс</a></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+ <div class="hero-l">
+  <span class="tag">Производитель наборов с 2016 года</span>
+  <h1>Войдите в нишу<br><span class="it">3D-слепков</span><br>вместе с нами</h1>
+  <p>Производим наборы для объёмных слепков рук. Продавайте их под нашим или своим брендом — на маркетплейсах, в соцсетях и в офлайн-точках.</p>
+  <div class="cta"><a class="btn g">Получить оптовый прайс →</a><a class="btn o">Смотреть наборы</a></div>
+  <div class="facts">
+   <div class="fact"><b>40+</b><span>моделей наборов</span></div>
+   <div class="fact"><b>от 10 шт.</b><span>минимальный заказ</span></div>
+   <div class="fact"><b>2–3 дня</b><span>отгрузка по России</span></div>
+  </div>
+ </div>
+ <div class="hero-r">
+  <div class="blob"></div>
+  <div class="arch ph"><img src="https://images.unsplash.com/photo-1484876632310-ddb3b48133cc?w=1000&q=80&auto=format&fit=crop" alt="Руки пары с обручальным кольцом"></div>
+  <div class="mini ph"><img src="https://images.unsplash.com/photo-1582486225644-aeacf6aa0b1b?w=500&q=80&auto=format&fit=crop" alt="Рука взрослого и ладошка малыша"></div>
+  <div class="float" style="left:150px;top:40px"><small>Оптовая цена</small><b>от 590 ₽</b></div>
+  <div class="float" style="right:-20px;bottom:110px"><small>Рекомендуемая розница</small><b>от 1 990 ₽</b><div style="margin-top:8px;font:700 12px Inter;color:#3c8a12;background:#e8f6dc;display:inline-block;padding:4px 8px;border-radius:6px">наценка до 230%</div></div>
+ </div>
+</div></section>
+
+<div class="mq"><div>Слепки рук пары <b>✦</b> Семейные наборы <b>✦</b> Детские ладошки и ножки <b>✦</b> Свадебный подарок <b>✦</b> Наборы 2D <b>✦</b> Слепки рук пары <b>✦</b> Семейные наборы</div></div>
+
+<section class="why"><div class="wrap">
+ <div class="big ph"><img src="https://images.unsplash.com/photo-1727386245570-4f609acbc94a?w=1000&q=80&auto=format&fit=crop" alt="Две руки крупным планом"><div class="badge"><b>10 лет</b><span>помогаем партнёрам зарабатывать на эмоциях и подарках</span></div></div>
+ <div>
+  <span class="tag">Почему ArtHouse 3D</span>
+  <h2 class="h2">Почему с нами <span class="it">выгодно</span> работать</h2>
+  <p class="lead">Мы сами разрабатываем составы, тестируем каждую партию и упаковываем наборы так, чтобы покупателю было легко и приятно.</p>
+  <div class="why-grid">
+   <div class="wc"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></div><h3>Большой выбор</h3><p>Наборы на 1–6 рук, ладошки и ножки малышей, 2D-рамки — любой комплектации, объёма и тематики.</p></div>
+   <div class="wc dark"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><path d="M3 21V9l6 4V9l6 4V5h6v16Z"/></svg></div><h3>Прямой производитель</h3><p>Без посредников: стабильные поставки и цены ниже, чем у перекупщиков.</p></div>
+   <div class="wc"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div><h3>Большой опыт</h3><p>С 2016 года на рынке: знаем, какие наборы продаются и как их продвигать.</p></div>
+   <div class="wc"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div><h3>Качество</h3><p>Гипоаллергенный альгинат и прочный гипс. Каждую партию проверяем вручную.</p></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="cat"><div class="wrap">
+ <div class="cat-top"><div><span class="tag">Каталог</span><h2 class="h2">Наборы для <span class="it">слепков</span></h2></div>
+  <div class="tabs"><div class="a">Стандарт</div><div>Наборы 2D</div><div>Премиум</div><div>Эконом</div></div></div>
+ <div class="cards">
+  <div class="card"><div class="ph"><span class="lbl">Хит продаж</span><img src="https://images.unsplash.com/photo-1513267000941-598abe7be16f?w=700&q=80&auto=format&fit=crop" alt="Руки пары"></div><div class="bd"><h3>Набор «Пара»</h3><div class="spec">Слепок двух рук · гипс 1,2 кг · рамка-подставка</div><div class="pr"><div><b>690 ₽</b><small>опт · РРЦ 1 990 ₽</small></div><div class="add">+</div></div></div></div>
+  <div class="card"><div class="ph"><img src="https://images.unsplash.com/photo-1562494794-d59c886e2bf2?w=700&q=80&auto=format&fit=crop" alt="Семья держится за руки"></div><div class="bd"><h3>Набор «Семья»</h3><div class="spec">До 4 рук · большая форма · краска-патина</div><div class="pr"><div><b>1 190 ₽</b><small>опт · РРЦ 3 290 ₽</small></div><div class="add">+</div></div></div></div>
+  <div class="card"><div class="ph"><span class="lbl n">Новинка</span><img src="https://images.unsplash.com/photo-1552819289-824d37ca69d2?w=700&q=80&auto=format&fit=crop" alt="Ладошка малыша"></div><div class="bd"><h3>Набор «Малыш»</h3><div class="spec">Ладошка + ножка · безопасный состав 0+</div><div class="pr"><div><b>590 ₽</b><small>опт · РРЦ 1 690 ₽</small></div><div class="add">+</div></div></div></div>
+  <div class="card"><div class="ph"><img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=700&q=80&auto=format&fit=crop" alt="Ручная работа"></div><div class="bd"><h3>Набор «Премиум»</h3><div class="spec">Слепок с подставкой из дерева · 3 цвета покрытия</div><div class="pr"><div><b>1 490 ₽</b><small>опт · РРЦ 3 990 ₽</small></div><div class="add">+</div></div></div></div>
+ </div>
+</div></section>
+
+<section class="part"><div class="wrap">
+ <span class="tag">Партнёрам</span>
+ <h2 class="h2">Сотрудничать с нами <span class="it">выгодно</span>, если вы</h2>
+ <div class="p-grid">
+  <div class="pc"><span class="n">01</span><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><path d="M4 7h16l-1.5 12h-13Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></div><h3>Продаёте на маркетплейсах</h3><p>Готовые фото, инфографика и тексты для карточек. Быстрый старт без дизайнера.</p></div>
+  <div class="pc"><span class="n">02</span><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><path d="M3 21V9l6 4V9l6 4V5h6v16Z"/></svg></div><h3>Производите похожие товары</h3><p>Расширьте ассортимент творческих наборов и увеличьте средний чек.</p></div>
+  <div class="pc"><span class="n">03</span><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><rect x="6" y="2" width="12" height="20" rx="3"/><circle cx="12" cy="17" r="1.2" fill="#1d1a17"/></svg></div><h3>Блогер или мастер</h3><p>Продавайте наборы своей аудитории — им нравится то, что можно сделать руками.</p></div>
+  <div class="pc"><span class="n">04</span><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><path d="M12 3l2.6 5.6 6 .7-4.5 4 1.3 6L12 16.4 6.6 19.3l1.3-6-4.5-4 6-.7Z"/></svg></div><h3>Организатор праздников</h3><p>Добавьте слепки как услугу на свадьбах, выписках и семейных фотосессиях.</p></div>
+  <div class="pc"><span class="n">05</span><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1d1a17" stroke-width="2.2"><path d="M3 10h18v11H3Z"/><path d="M3 10 5 3h14l2 7"/><path d="M9 21v-6h6v6"/></svg></div><h3>Магазин подарков</h3><p>Яркая упаковка, которая сама продаёт с полки. Поможем с выкладкой.</p></div>
+  <div class="pc yel"><span class="n" style="color:rgba(29,26,23,.4)">06</span><div class="ico" style="background:var(--ink)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2b705" stroke-width="2.2"><path d="M4 5h16v11H8l-4 4Z"/></svg></div><h3>Не нашли себя?</h3><p>Напишите нам — подберём модель сотрудничества под ваш бизнес.</p></div>
+ </div>
+</div></section>
+
+<section class="where"><div class="wrap">
+ <div class="cat-top"><div><span class="tag" style="color:rgba(255,255,255,.6)">Каналы продаж</span><h2 class="h2">Где продавать <span class="it">наши наборы?</span></h2></div><p class="lead" style="max-width:420px">Наборы хорошо продаются в любом канале — от маркетплейсов до точки в торговом центре.</p></div>
+ <div class="bento">
+  <div class="bx ph" style="grid-column:span 3"><span class="num">1</span><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=1000&q=80&auto=format&fit=crop" alt="Коробки для отправки"><div class="cap"><b>На маркетплейсах</b><span>Займите свою нишу в «Подарках» и «Хобби». Дадим фото и видео для карточек.</span></div></div>
+  <div class="bx ph" style="grid-column:span 3"><span class="num">2</span><img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1000&q=80&auto=format&fit=crop" alt="Смартфон с приложениями"><div class="cap"><b>В соцсетях и мессенджерах</b><span>Продвигайте профиль, выкладывайте процесс и готовые слепки — это вирусный контент.</span></div></div>
+  <div class="bx ph" style="grid-column:span 2"><span class="num">3</span><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80&auto=format&fit=crop" alt="Ноутбук"><div class="cap"><b>На своём сайте</b><span>Добавьте наборы в каталог и рекламу.</span></div></div>
+  <div class="bx ph" style="grid-column:span 2"><span class="num">4</span><img src="https://images.unsplash.com/photo-1575833947349-69324d765146?w=800&q=80&auto=format&fit=crop" alt="Крафтовая коробка"><div class="cap"><b>Под своим брендом</b><span>Упакуем в вашу коробку с вашим логотипом.</span></div></div>
+  <div class="bx ph" style="grid-column:span 2"><span class="num">5</span><img src="https://images.unsplash.com/photo-1759323321196-2813db509285?w=800&q=80&auto=format&fit=crop" alt="Магазин"><div class="cap"><b>В офлайн-точках</b><span>Островок в ТЦ на 20–30 м² — уже бизнес.</span></div></div>
+ </div>
+</div></section>
+
+<section class="steps"><div class="wrap">
+ <span class="tag">Как начать</span>
+ <h2 class="h2">Четыре шага до <span class="it">первых продаж</span></h2>
+ <div class="st">
+  <div class="s"><div class="k">01</div><h4>Оставьте заявку</h4><p>Расскажите, где и как планируете продавать.</p></div>
+  <div class="s"><div class="k">02</div><h4>Получите прайс</h4><p>Пришлём оптовые цены и условия в течение дня.</p></div>
+  <div class="s"><div class="k">03</div><h4>Сделайте заказ</h4><p>От 10 наборов. Отгрузка за 2–3 дня в любой регион.</p></div>
+  <div class="s"><div class="k">04</div><h4>Продавайте</h4><p>Поддерживаем материалами и советом на каждом этапе.</p></div>
+ </div>
+ <div class="kit"><h3>Каждый партнёр получает бесплатно</h3><ul>
+  <li><i>✓</i>Фото и видео для карточек и соцсетей</li><li><i>✓</i>Тексты и инфографику для маркетплейсов</li>
+  <li><i>✓</i>Видео-инструкцию для покупателей</li><li><i>✓</i>Личного менеджера на связи</li>
+ </ul></div>
+</div></section>
+
+<section class="rev"><div class="wrap">
+ <span class="tag">Отзывы партнёров</span>
+ <h2 class="h2">Партнёры о <span class="it">работе с нами</span></h2>
+ <div class="r-grid">
+  <div class="rc"><span class="res">+180 заказов в месяц</span><q>Начинали с 20 наборов «Пара» на маркетплейсе. Через три месяца это наш самый стабильный товар в подарочной категории.</q><div class="who"><div class="av ph"><img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=200&q=80&auto=format&fit=crop" alt=""></div><div><b>Марина К.</b><span>Продавец на маркетплейсе</span></div></div></div>
+  <div class="rc dk"><span class="res">Свой бренд за 3 недели</span><q>Сделали наборы в нашей упаковке с логотипом. Менеджер помог со всем — от макета коробки до первой партии.</q><div class="who"><div class="av" style="background:linear-gradient(135deg,#f2b705,#e07a2e)"></div><div><b>Алексей Д.</b><span>Магазин творческих наборов</span></div></div></div>
+  <div class="rc"><span class="res">Новая услуга</span><q>Предлагаем слепки рук молодожёнам прямо на свадьбе. Гости в восторге, а для нас это дополнительный доход с каждого события.</q><div class="who"><div class="av" style="background:linear-gradient(135deg,#d9c9ad,#8f7b5c)"></div><div><b>Ирина С.</b><span>Свадебное агентство</span></div></div></div>
+ </div>
+</div></section>
+
+<section class="order"><div class="wrap"><div class="ord">
+ <div class="l">
+  <span class="tag" style="color:rgba(255,255,255,.6)">Оптовый прайс</span>
+  <h2 style="margin-top:16px">Получите прайс и <span class="it">условия</span> за 1 день</h2>
+  <p>Оставьте контакты — менеджер перезвонит, ответит на вопросы и пришлёт каталог с оптовыми ценами.</p>
+  <div class="f"><small>Имя</small><span>Как к вам обращаться</span></div>
+  <div class="f"><small>Телефон</small><span>+7 (___) ___-__-__</span></div>
+  <div style="margin-top:18px;font:600 13px Inter;color:rgba(255,255,255,.6)">Где планируете продавать?</div>
+  <div class="chips"><span class="a">Маркетплейсы</span><span>Соцсети</span><span>Свой сайт</span><span>Офлайн</span><span>Пока не знаю</span></div>
+  <a class="btn g">Получить прайс →</a>
+ </div>
+ <div class="ph"><img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=1000&q=80&auto=format&fit=crop" alt="Творческая мастерская">
+  <div class="contact"><div><small>Телефон</small><b>+7 (999) 000-00-00</b></div><div><small>Email</small><b>press@arthouse3d.ru</b></div><div><small>Время работы</small><b>Пн–Пт, 9:00–19:00</b></div><div><small>Склад</small><b>Москва</b></div></div>
+ </div>
+</div></div></section>
+
+<footer><div class="wrap">
+ <div class="ft">
+  <div class="logo"><div class="mk"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M8 24V11c0-1.7 2.6-1.7 2.6 0v5V5c0-1.7 2.6-1.7 2.6 0v11V4c0-1.7 2.6-1.7 2.6 0v12V7c0-1.7 2.6-1.7 2.6 0v11c0 4-3 6-6 6Z" fill="#f2b705"/></svg></div><div><b>ArtHouse <span>3D</span></b><small>sculptor of memories</small></div></div>
+  <nav class="links"><a>Наборы</a><a>Почему мы</a><a>Партнёрам</a><a>Где продавать</a><a>Контакты</a></nav>
+  <a class="btn d">Оптовый прайс</a>
+ </div>
+ <div class="ft-b"><span>© 2026 ArtHouse 3D. Наборы для 3D-слепков оптом</span><span>Политика конфиденциальности</span></div>
+</div></footer>
+</body></html>
